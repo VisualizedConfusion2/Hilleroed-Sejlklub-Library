@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hilleroed_Sejlklub_Library.Interfaces
 {
-    internal class Interface
+    interface IMemberService
     {
     }
 }
