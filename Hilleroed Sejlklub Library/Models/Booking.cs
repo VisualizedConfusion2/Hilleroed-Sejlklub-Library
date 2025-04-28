@@ -2,14 +2,14 @@
 {
     public class Booking
     {
-        private int _id;
+        private int _bookingID;
         private string _location;
         private DateTime _timeOfBooking;
 
-        public int Id
+        public int BookingID
         {
-            get { return _id; }
-            private set { _id = value; }
+            get { return _bookingID; }
+            private set { _bookingID = value; }
         }
 
         public string Location
@@ -25,9 +25,9 @@
         }
 
         // Constructor
-        public Booking(int _id, string _location, DateTime _timeOfBooking)
+        public Booking(int _bookingID, string _location, DateTime _timeOfBooking)
         {
-            _id = Id;
+            _bookingID = BookingID;
             _location = Location;
             _timeOfBooking = TimeOfBooking;
         }
