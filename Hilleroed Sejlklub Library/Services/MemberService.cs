@@ -24,7 +24,7 @@ namespace Hilleroed_Sejlklub_Library.Services
 
         public Member? GetMemberById(int id)
         {
-            foreach (var member in _members)
+            foreach (Member member in _members)
             {
                 if (member.MemberID == id)
                 {
@@ -41,7 +41,7 @@ namespace Hilleroed_Sejlklub_Library.Services
 
         public bool UpdateMember(int id, Member updatedMember)
         {
-            var member = GetMemberById(id);
+            Member? member = GetMemberById(id);
             if (member == null)
                 return false;
 
@@ -54,7 +54,7 @@ namespace Hilleroed_Sejlklub_Library.Services
 
         public bool DeleteMember(int id)
         {
-            var member = GetMemberById(id);
+            Member? member = GetMemberById(id);
             if (member == null)
                 return false;
 
@@ -64,7 +64,7 @@ namespace Hilleroed_Sejlklub_Library.Services
 
         public Member GetMember(int MemberID)
         {
-            var member = GetMemberById(MemberID);
+            Member? member = GetMemberById(MemberID);
             if (member == null)
             {
                 throw new KeyNotFoundException($"Member with ID {MemberID} not found.");
@@ -74,8 +74,8 @@ namespace Hilleroed_Sejlklub_Library.Services
 
         public List<Member> GetMembers()
         {
-            var membersCopy = new List<Member>();
-            foreach (var member in _members)
+            List<Member> membersCopy = new List<Member>();
+            foreach (Member member in _members)
             {
                 membersCopy.Add(member);
             }
@@ -84,7 +84,7 @@ namespace Hilleroed_Sejlklub_Library.Services
 
         public void Add(Member member)
         {
-            foreach (var existingMember in _members)
+            foreach (Member existingMember in _members)
             {
                 if (existingMember.MemberID == member.MemberID)
                 {
@@ -96,7 +96,7 @@ namespace Hilleroed_Sejlklub_Library.Services
 
         public void Delete(int MemberID)
         {
-            var member = GetMemberById(MemberID);
+            Member? member = GetMemberById(MemberID);
             if (member == null)
             {
                 throw new KeyNotFoundException($"Member with ID {MemberID} not found.");
