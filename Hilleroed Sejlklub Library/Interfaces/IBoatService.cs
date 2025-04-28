@@ -1,12 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hilleroed_Sejlklub_Library.Models;
 
 namespace Hilleroed_Sejlklub_Library.Interfaces
 {
     interface IBoatService
     {
+        List<Boat> Get();
+        void Add(Boat boat);
+        void Delete(int id);
+        void GetById(int id);
     }
 }
