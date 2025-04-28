@@ -24,7 +24,14 @@ namespace Hilleroed_Sejlklub_Library.Services
 
         public Member? GetMemberById(int id)
         {
-            return _members.FirstOrDefault(m => m.MemberID == id);
+            foreach (var member in _members)
+            {
+                if (member.MemberID == id)
+                {
+                    return member;
+                }
+            }
+            return null;
         }
 
         public void AddMember(Member member)
@@ -57,18 +64,33 @@ namespace Hilleroed_Sejlklub_Library.Services
 
         public Member GetMember(int MemberID)
         {
-            return GetMemberById(MemberID) ?? throw new KeyNotFoundException($"Member with ID {MemberID} not found.");
+            var member = GetMemberById(MemberID);
+            if (member == null)
+            {
+                throw new KeyNotFoundException($"Member with ID {MemberID} not found.");
+            }
+            return member;
         }
 
         public List<Member> GetMembers()
         {
-            return _members.ToList();
+            var membersCopy = new List<Member>();
+            foreach (var member in _members)
+            {
+                membersCopy.Add(member);
+            }
+            return membersCopy;
         }
 
         public void Add(Member member)
         {
-            if (_members.Any(m => m.MemberID == member.MemberID))
-                throw new InvalidOperationException($"Member with ID {member.MemberID} already exists.");
+            foreach (var existingMember in _members)
+            {
+                if (existingMember.MemberID == member.MemberID)
+                {
+                    throw new InvalidOperationException($"Member with ID {member.MemberID} already exists.");
+                }
+            }
             _members.Add(member);
         }
 
@@ -76,7 +98,9 @@ namespace Hilleroed_Sejlklub_Library.Services
         {
             var member = GetMemberById(MemberID);
             if (member == null)
+            {
                 throw new KeyNotFoundException($"Member with ID {MemberID} not found.");
+            }
             _members.Remove(member);
         }
     }

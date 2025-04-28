@@ -22,54 +22,82 @@ namespace Hilleroed_Sejlklub_Library.Services
             return _repairs;
         }
 
-        public Repair? GetRepairById(string id) // Changed parameter type from int to string
+        public Repair? GetRepairById(string id)
         {
-            return _repairs.FirstOrDefault(r => r.RepairID == id); // No changes needed here as both are strings now
+            foreach (var repair in _repairs)
+            {
+                if (repair.RepairID == id)
+                {
+                    return repair;
+                }
+            }
+            return null;
         }
 
         public void AddRepair(Repair repair)
         {
-            if (_repairs.Any(r => r.RepairID == repair.RepairID))
-                throw new InvalidOperationException($"Repair with ID {repair.RepairID} already exists.");
+            foreach (var existingRepair in _repairs)
+            {
+                if (existingRepair.RepairID == repair.RepairID)
+                {
+                    throw new InvalidOperationException($"Repair with ID {repair.RepairID} already exists.");
+                }
+            }
             _repairs.Add(repair);
         }
 
-        public bool UpdateRepair(string id, Repair updatedRepair) // Changed parameter type from int to string
+        public bool UpdateRepair(string id, Repair updatedRepair)
         {
             var repair = GetRepairById(id);
             if (repair == null)
+            {
                 return false;
+            }
 
             repair.Description = updatedRepair.Description;
             repair.Date = updatedRepair.Date;
             return true;
         }
 
-        public bool DeleteRepair(string id) // Changed parameter type from int to string
+        public bool DeleteRepair(string id)
         {
             var repair = GetRepairById(id);
             if (repair == null)
+            {
                 return false;
+            }
 
             _repairs.Remove(repair);
             return true;
         }
 
-        public Repair GetRepair(string repairID) // Changed parameter type from int to string
+        public Repair GetRepair(string repairID)
         {
-            return GetRepairById(repairID) ?? throw new KeyNotFoundException($"Repair with ID {repairID} not found.");
+            var repair = GetRepairById(repairID);
+            if (repair == null)
+            {
+                throw new KeyNotFoundException($"Repair with ID {repairID} not found.");
+            }
+            return repair;
         }
 
         public List<Repair> GetRepairs()
         {
-            return _repairs.ToList();
+            var repairsCopy = new List<Repair>();
+            foreach (var repair in _repairs)
+            {
+                repairsCopy.Add(repair);
+            }
+            return repairsCopy;
         }
 
-        public void Delete(string repairID) // Changed parameter type from int to string
+        public void Delete(string repairID)
         {
             var repair = GetRepairById(repairID);
             if (repair == null)
+            {
                 throw new KeyNotFoundException($"Repair with ID {repairID} not found.");
+            }
             _repairs.Remove(repair);
         }
 
