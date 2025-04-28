@@ -16,6 +16,6 @@ namespace Hilleroed_Sejlklub_Library.Interfaces
         void Add(Repair repair);
 
         // Delete a repair record by ID
-        void Delete(int Id);
+        void Delete(int RepairID);
     }
 }
