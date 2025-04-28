@@ -10,7 +10,7 @@ namespace Hilleroed_Sejlklub_Library.Interfaces
     interface IMemberService
     {
         // Get a member based on Id
-        Member GetMember(int Id);
+        Member GetMember(int MemberID);
 
         // Get a list of all members
         List<Member> GetMembers();
@@ -19,6 +19,6 @@ namespace Hilleroed_Sejlklub_Library.Interfaces
         void Add(Member member);
 
         // Delete a member by Id
-        void Delete(int Id);
+        void Delete(int MemberID);
     }
 }
