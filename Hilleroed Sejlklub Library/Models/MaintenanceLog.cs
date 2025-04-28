@@ -3,6 +3,7 @@
     public class MaintenanceLog
     {
         public DateTime RegularMaintenance { get; set; }
+        public int MaintenanceLogId { get; set; }
 
         public MaintenanceLog(DateTime regularMaintenance)
         {
