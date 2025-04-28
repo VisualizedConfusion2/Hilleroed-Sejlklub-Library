@@ -5,7 +5,7 @@
         public DateTime RegularMaintenance { get; set; }
         
         public override string ToString()
-        {
+        {s
             return $"Vedligholdelsen er udført: {RegularMaintenance:d}";
         }
     }
