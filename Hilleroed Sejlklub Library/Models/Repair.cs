@@ -16,7 +16,7 @@
 
         public override string ToString()
         {
-            return $"{Date:d}: {Description}";
+            return $"{Date:d}: {Description}: {RepairID}";
         }
 
     }
