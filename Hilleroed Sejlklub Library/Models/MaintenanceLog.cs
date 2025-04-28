@@ -2,5 +2,16 @@
 {
     public class MaintenanceLog
     {
+        public DateTime RegularMaintenance { get; set; }
+
+        public MaintenanceLog(DateTime regularMaintenance)
+        {
+            regularMaintenance = RegularMaintenance;
+        }
+        
+        public override string ToString()
+        {
+            return $"Vedligholdelsen blev udført: {RegularMaintenance:d}";
+        }
     }
 }
