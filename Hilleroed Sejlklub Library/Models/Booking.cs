@@ -5,7 +5,7 @@
         private int _id;
         private string _location;
         private DateTime _timeOfBooking;
-        
+
         public int Id
         {
             get { return _id; }
@@ -24,5 +24,12 @@
             private set { _timeOfBooking = value; }
         }
 
+        // Constructor
+        public Booking(int _id, string _location, DateTime _timeOfBooking)
+        {
+            _id = Id;
+            _location = Location;
+            _timeOfBooking = TimeOfBooking;
+        }
     }
 }
