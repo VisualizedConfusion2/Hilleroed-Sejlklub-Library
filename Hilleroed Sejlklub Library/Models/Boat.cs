@@ -2,15 +2,15 @@
 {
     public class Boat
     {
-        public string Name { get; set; }
-        public int BoatId { get; set; }
-        public string Model { get; set; }
-        public string Type { get; set; }
-        public string SailType { get; set; }
-        public string Motor { get; set; }
-        public string Measurement { get; set; }
-        public DateTime Year { get; set; }
-        public bool Usable { get; set; }
+        public string Name { get; private set; }
+        public int BoatId { get; private set; }
+        public string Model { get; private set; }
+        public string Type { get; private set; }
+        public string SailType { get; private set; }
+        public string Motor { get; private set; }
+        public string Measurement { get; private set; }
+        public DateTime Year { get; private set; }
+        public bool Usable { get; private set; }
         public Boat(string name, int id, string model, string type, string sailType, string motor, string measurement, DateTime year, bool usable)
         {
             Name = name;
