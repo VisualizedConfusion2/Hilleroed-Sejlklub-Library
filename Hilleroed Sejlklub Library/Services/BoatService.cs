@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Hilleroed_Sejlklub_Library.Services
 {
-    internal class BoatService : IBoatService
+    internal class BoatService : IBoatRepo
     {
         private readonly List<Boat> _boats;
 

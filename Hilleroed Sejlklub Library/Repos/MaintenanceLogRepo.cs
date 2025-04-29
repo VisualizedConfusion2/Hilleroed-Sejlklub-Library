@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hilleroed_Sejlklub_Library.Repos
 {
-    internal class Class1
+    internal class MaintenanceLogRepo
     {
     }
 }
