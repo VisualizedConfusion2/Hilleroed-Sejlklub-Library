@@ -2,34 +2,20 @@
 {
     public class Booking
     {
-        private int _bookingID;
-        private string _location;
-        private DateTime _timeOfBooking;
+        public int BookingID { get; private set; }
+        public string Location { get; private set; }
+        public DateTime TimeOfBooking { get; private set; }
 
-        public int BookingID
+        public Booking(int bookingID, string location, DateTime timeOfBooking)
         {
-            get { return _bookingID; }
-            private set { _bookingID = value; }
+            BookingID = bookingID;
+            Location = location;
+            TimeOfBooking = timeOfBooking;
         }
 
-        public string Location
+        public override string ToString()
         {
-            get { return _location; }
-            private set { _location = value; }
-        }
-
-        public DateTime TimeOfBooking
-        {
-            get { return _timeOfBooking; }
-            private set { _timeOfBooking = value; }
-        }
-
-        // Constructor
-        public Booking(int _bookingID, string _location, DateTime _timeOfBooking)
-        {
-            _bookingID = BookingID;
-            _location = Location;
-            _timeOfBooking = TimeOfBooking;
+            return $"BookingID: {BookingID}, Location: {Location}, Time: {TimeOfBooking:g}";
         }
     }
 }

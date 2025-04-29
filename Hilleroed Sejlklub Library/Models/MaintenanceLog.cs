@@ -5,14 +5,15 @@
         public DateTime RegularMaintenance { get; set; }
         public int MaintenanceLogId { get; set; }
 
-        public MaintenanceLog(DateTime regularMaintenance)
+        public MaintenanceLog(int maintenanceLogId, DateTime regularMaintenance)
         {
-            regularMaintenance = RegularMaintenance;
+            MaintenanceLogId = maintenanceLogId;
+            RegularMaintenance = regularMaintenance;
         }
-        
+
         public override string ToString()
         {
-            return $"Vedligholdelsen blev udført: {RegularMaintenance:d}";
+            return $"Vedligeholdelsen blev udført: {RegularMaintenance:d}";
         }
     }
 }
