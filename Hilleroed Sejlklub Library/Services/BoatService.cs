@@ -7,8 +7,12 @@ using System.Diagnostics;
 
 namespace Hilleroed_Sejlklub_Library.Services
 {
+    /// <summary>
+    /// Boat service class that provides functionality to manage boats.
+    /// </summary>
     public class BoatService
     {
+
         private IBoatRepo _boatRepo;
 
         public BoatService(IBoatRepo boatRepo)
