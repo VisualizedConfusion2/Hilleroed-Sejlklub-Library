@@ -10,22 +10,18 @@ namespace Hilleroed_Sejlklub_Library.Services
 {
     internal class MemberService : IMemberService
     {
-        // List to store all members
         private readonly List<Member> _members;
 
-        // Constructor to initialize the member list
         public MemberService()
         {
             _members = new List<Member>();
         }
 
-        // Retrieve all members
-        public List<Member> GetAllMembers()
+        public IEnumerable<Member> GetAllMembers()
         {
             return _members;
         }
 
-        // Retrieve a member by their ID
         public Member? GetMemberById(int id)
         {
             foreach (Member member in _members)
@@ -38,20 +34,17 @@ namespace Hilleroed_Sejlklub_Library.Services
             return null;
         }
 
-        // Add a new member to the list
         public void AddMember(Member member)
         {
             _members.Add(member);
         }
 
-        // Update an existing member's details
         public bool UpdateMember(int id, Member updatedMember)
         {
             Member? member = GetMemberById(id);
             if (member == null)
                 return false;
 
-            // Update member properties
             member.Name = updatedMember.Name;
             member.ContactInfo = updatedMember.ContactInfo;
             member.Birthday = updatedMember.Birthday;
@@ -59,7 +52,6 @@ namespace Hilleroed_Sejlklub_Library.Services
             return true;
         }
 
-        // Delete a member by their ID
         public bool DeleteMember(int id)
         {
             Member? member = GetMemberById(id);
@@ -70,7 +62,6 @@ namespace Hilleroed_Sejlklub_Library.Services
             return true;
         }
 
-        // Retrieve a member by ID or throw an exception if not found
         public Member GetMember(int MemberID)
         {
             Member? member = GetMemberById(MemberID);
@@ -81,7 +72,6 @@ namespace Hilleroed_Sejlklub_Library.Services
             return member;
         }
 
-        // Get a copy of the list of all members
         public List<Member> GetMembers()
         {
             List<Member> membersCopy = new List<Member>();
@@ -92,7 +82,6 @@ namespace Hilleroed_Sejlklub_Library.Services
             return membersCopy;
         }
 
-        // Add a new member, ensuring no duplicate IDs
         public void Add(Member member)
         {
             foreach (Member existingMember in _members)
@@ -105,7 +94,6 @@ namespace Hilleroed_Sejlklub_Library.Services
             _members.Add(member);
         }
 
-        // Delete a member by ID or throw an exception if not found
         public void Delete(int MemberID)
         {
             Member? member = GetMemberById(MemberID);
