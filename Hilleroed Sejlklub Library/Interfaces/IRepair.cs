@@ -16,6 +16,18 @@ namespace Hilleroed_Sejlklub_Library.Interfaces
         void Add(Repair repair);
 
         // Delete a repair record by ID
-        void Delete(int RepairID);
+        void Delete(string RepairID);
+
+        // Get a repair record by ID
+        Repair GetById(string RepairID);
+
+        // Update an existing repair record
+        void Update(Repair repair);
+
+        // Get the date of a repair by ID
+        DateTime GetDate(string RepairID);
+
+        // Get the description of a repair by ID
+        string GetDescription(string RepairID);
     }
 }

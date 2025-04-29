@@ -9,16 +9,24 @@ namespace Hilleroed_Sejlklub_Library.Interfaces
 {
     interface IMember
     {
-        // Get a member based on Id
+        // Get a member based on Id  
         Member GetMember(int MemberID);
 
-        // Get a list of all members
+        // Get a list of all members  
         List<Member> GetMembers();
 
-        // Add a new member
+        // Add a new member  
         void Add(Member member);
 
-        // Delete a member by Id
+        // Delete a member by Id  
         void Delete(int MemberID);
+
+        // Get contact info of a member by Id  
+        string GetContactInfo(int MemberID);
+
+        // Get gender of a member by Id  
+        string GetGender(int MemberID);
+
+
     }
 }

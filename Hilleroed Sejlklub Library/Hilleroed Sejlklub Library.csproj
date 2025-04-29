@@ -1,11 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>Hilleroed_Sejlklub_Library</RootNamespace>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<RootNamespace>Hilleroed_Sejlklub_Library</RootNamespace>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<!-- NuGet metadata -->
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageId>Hilleroed.Sejlklub.Library</PackageId>
+		<Version>1.0.0</Version>
+		<Authors>Dit Navn</Authors>
+		<Company>Hilleroed Sejlklub</Company>
+		<Description>Et delt bibliotek til brug i Razor Pages hos Hilleroed Sejlklub</Description>
+	</PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="Class1.cs" />

@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace Hilleroed_Sejlklub_Library.Interfaces
 {
-    interface IBookingRepo
+    public interface IBookingRepo
     {
-        // Get all repair records
-        List<Repair> GetAll();
+        // Get all booking records
+        List<Booking> GetAll();
 
-        // Add a new repair record
-        void Add(Repair repair);
+        // Add a new booking record
+        void Add(Booking booking);
 
-        // Delete a repair record by ID
-        void Delete(int RepairID);
+        // Delete a booking record by ID
+        void Delete(int bookingID);
     }
 }
