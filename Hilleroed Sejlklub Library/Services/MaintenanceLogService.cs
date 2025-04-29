@@ -12,7 +12,7 @@ namespace Hilleroed_Sejlklub_Library.Services
     /// The MaintenanceLogService class provides functionality to manage maintenance logs.  
     /// Implements the IMaintenanceLog interface.  
     /// </summary>  
-    internal class MaintenanceLogService : IMaintenanceLog
+    internal class MaintenanceLogService : IMaintenanceLogRepo
     {
         // A private list to store maintenance logs  
         private readonly List<MaintenanceLog> _maintenanceLogs;

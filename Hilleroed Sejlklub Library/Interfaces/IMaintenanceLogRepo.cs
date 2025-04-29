@@ -7,7 +7,7 @@ using Hilleroed_Sejlklub_Library.Models;
 
 namespace Hilleroed_Sejlklub_Library.Interfaces
 {
-    interface IMaintenanceLog
+    interface IMaintenanceLogRepo
     {
         List<MaintenanceLog> GetAll();
         void Add(MaintenanceLog maintenanceLog);
