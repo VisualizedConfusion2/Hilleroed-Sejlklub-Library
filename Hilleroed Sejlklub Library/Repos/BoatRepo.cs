@@ -11,14 +11,14 @@ namespace Hilleroed_Sejlklub_Library.Repos
 {
     public class BoatRepo : IBoatRepo
     {
-        private List<Boat> _boats;
+        public List<Boat> _boats;
 
         public BoatRepo()
         {
             _boats = new List<Boat>();
             Seed();
         }
-        public void Add(Boat boat)
+        public virtual void Add(Boat boat)
         {
             _boats.Add(boat);
         }

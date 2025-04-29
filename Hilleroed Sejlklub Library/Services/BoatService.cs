@@ -25,7 +25,7 @@ namespace Hilleroed_Sejlklub_Library.Services
             return _boatRepo.Get();
         }
 
-        public void Add(Boat boat)
+        public virtual void Add(Boat boat)
         {
             _boatRepo.Add(boat);
         }

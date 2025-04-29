@@ -6,9 +6,10 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
+
 namespace Hilleroed_Sejlklub_Library.Repos
 {
-    public class JsonRepo:BoatRepo
+    public class JsonRepo : BoatRepo
     {
         public JsonRepo()
         {
