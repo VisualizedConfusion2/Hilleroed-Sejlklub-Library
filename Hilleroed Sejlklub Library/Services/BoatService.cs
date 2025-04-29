@@ -1,17 +1,18 @@
 ﻿using Hilleroed_Sejlklub_Library.Interfaces;
 using Hilleroed_Sejlklub_Library.Models;
+using Hilleroed_Sejlklub_Library.Repos;
 using System;
 using System.Collections.Generic;
 
 namespace Hilleroed_Sejlklub_Library.Services
 {
-    internal class BoatService : IBoatRepo
+    public class BoatService
     {
-        private readonly List<Boat> _boats;
+        private IBoatRepo _boatRepo;
 
-        public BoatService()
+        public BoatService(IBoatRepo boatRepo)
         {
-            _boats = new List<Boat>();
+            _boatRepo = boatRepo ?? throw new ArgumentNullException(nameof(boatRepo));
         }
 
         public List<Boat> Get()
