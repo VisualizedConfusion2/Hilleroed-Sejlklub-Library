@@ -14,6 +14,6 @@ namespace Hilleroed_Sejlklub_Library.Interfaces
         List<Boat> Get();
         void Add(Boat boat);
         void Delete(int id);
-        void GetById(int id);
+        Boat GetById(int id);
     }
 }
