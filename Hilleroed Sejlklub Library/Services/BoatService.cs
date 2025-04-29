@@ -2,106 +2,70 @@
 using Hilleroed_Sejlklub_Library.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Hilleroed_Sejlklub_Library.Services
 {
-    internal class MemberService : IMemberService
+    internal class BoatService : IBoatService
     {
-        private readonly List<Member> _members;
+        private readonly List<Boat> _boats;
 
-        public MemberService()
+        public BoatService()
         {
-            _members = new List<Member>();
+            _boats = new List<Boat>();
         }
 
-        public IEnumerable<Member> GetAllMembers()
+        public List<Boat> Get()
         {
-            return _members;
-        }
-
-        public Member? GetMemberById(int id)
-        {
-            foreach (Member member in _members)
+            List<Boat> boatsCopy = new List<Boat>();
+            foreach (Boat boat in _boats)
             {
-                if (member.MemberID == id)
+                boatsCopy.Add(boat);
+            }
+            return boatsCopy;
+        }
+
+        public void Add(Boat boat)
+        {
+            foreach (Boat existingBoat in _boats)
+            {
+                if (existingBoat.BoatId == boat.BoatId)
                 {
-                    return member;
+                    throw new InvalidOperationException($"Boat with ID {boat.BoatId} already exists.");
+                }
+            }
+            _boats.Add(boat);
+        }
+
+        public void Delete(int id)
+        {
+            Boat? boat = GetByIdInternal(id);
+            if (boat == null)
+            {
+                throw new KeyNotFoundException($"Boat with ID {id} not found.");
+            }
+            _boats.Remove(boat);
+        }
+
+        public void GetById(int id)
+        {
+            Boat? boat = GetByIdInternal(id);
+            if (boat == null)
+            {
+                throw new KeyNotFoundException($"Boat with ID {id} not found.");
+            }
+        }
+
+        private Boat? GetByIdInternal(int id)
+        {
+            foreach (Boat boat in _boats)
+            {
+                if (boat.BoatId == id)
+                {
+                    return boat;
                 }
             }
             return null;
         }
-
-        public void AddMember(Member member)
-        {
-            _members.Add(member);
-        }
-
-        public bool UpdateMember(int id, Member updatedMember)
-        {
-            Member? member = GetMemberById(id);
-            if (member == null)
-                return false;
-
-            member.Name = updatedMember.Name;
-            member.ContactInfo = updatedMember.ContactInfo;
-            member.Birthday = updatedMember.Birthday;
-            member.Gender = updatedMember.Gender;
-            return true;
-        }
-
-        public bool DeleteMember(int id)
-        {
-            Member? member = GetMemberById(id);
-            if (member == null)
-                return false;
-
-            _members.Remove(member);
-            return true;
-        }
-
-        public Member GetMember(int MemberID)
-        {
-            Member? member = GetMemberById(MemberID);
-            if (member == null)
-            {
-                throw new KeyNotFoundException($"Member with ID {MemberID} not found.");
-            }
-            return member;
-        }
-
-        public List<Member> GetMembers()
-        {
-            List<Member> membersCopy = new List<Member>();
-            foreach (Member member in _members)
-            {
-                membersCopy.Add(member);
-            }
-            return membersCopy;
-        }
-
-        public void Add(Member member)
-        {
-            foreach (Member existingMember in _members)
-            {
-                if (existingMember.MemberID == member.MemberID)
-                {
-                    throw new InvalidOperationException($"Member with ID {member.MemberID} already exists.");
-                }
-            }
-            _members.Add(member);
-        }
-
-        public void Delete(int MemberID)
-        {
-            Member? member = GetMemberById(MemberID);
-            if (member == null)
-            {
-                throw new KeyNotFoundException($"Member with ID {MemberID} not found.");
-            }
-            _members.Remove(member);
-        }
     }
 }
+
