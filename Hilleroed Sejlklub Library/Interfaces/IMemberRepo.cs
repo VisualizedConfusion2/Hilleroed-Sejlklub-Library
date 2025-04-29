@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Hilleroed_Sejlklub_Library.Interfaces
 {
-    interface IMember
+    interface IMemberRepo
     {
         // Get a member based on Id  
         Member GetMember(int MemberID);

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Hilleroed_Sejlklub_Library.Interfaces
 {
-    public interface IRepair
+    public interface IRepairRepo
     {
         // Get all repair records
         List<Repair> GetAll();

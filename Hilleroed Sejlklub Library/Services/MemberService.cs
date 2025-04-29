@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Hilleroed_Sejlklub_Library.Services
 {
-    internal class MemberService : IMember
+    internal class MemberService : IMemberRepo
     {
         // List to store all members
         private readonly List<Member> _members;

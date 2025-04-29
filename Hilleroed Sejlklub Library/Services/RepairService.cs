@@ -10,7 +10,7 @@ namespace Hilleroed_Sejlklub_Library.Services
 {
     // The RepairService class provides functionality to manage a collection of Repair objects.
     // It implements the IRepair interface and provides methods for CRUD operations on repairs.
-    internal class RepairService : IRepair
+    internal class RepairService : IRepairRepo
     {
         // A private list to store all repair records.
         private readonly List<Repair> _repairs;
