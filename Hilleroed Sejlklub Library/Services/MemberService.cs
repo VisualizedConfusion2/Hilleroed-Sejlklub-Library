@@ -115,5 +115,15 @@ namespace Hilleroed_Sejlklub_Library.Services
             }
             _members.Remove(member);
         }
+
+        public string GetContactInfo(int MemberID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetGender(int MemberID)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

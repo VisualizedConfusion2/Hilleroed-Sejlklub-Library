@@ -121,5 +121,25 @@ namespace Hilleroed_Sejlklub_Library.Services
         {
             throw new NotImplementedException();
         }
+
+        public Repair GetById(string RepairID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Repair repair)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DateTime GetDate(string RepairID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetDescription(string RepairID)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
