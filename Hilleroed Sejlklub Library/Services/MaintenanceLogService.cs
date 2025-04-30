@@ -1,5 +1,6 @@
 ﻿using Hilleroed_Sejlklub_Library.Interfaces;
 using Hilleroed_Sejlklub_Library.Models;
+using Hilleroed_Sejlklub_Library.Repos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,17 +13,17 @@ namespace Hilleroed_Sejlklub_Library.Services
     /// The MaintenanceLogService class provides functionality to manage maintenance logs.  
     /// Implements the IMaintenanceLog interface.  
     /// </summary>  
-    internal class MaintenanceLogService : IMaintenanceLogRepo
+    internal class MaintenanceLogService
     {
         // A private list to store maintenance logs  
-        private readonly List<MaintenanceLog> _maintenanceLogs;
+        private IMaintenanceLogRepo _maintenanceLogRepo;
 
         /// <summary>  
         /// Constructor to initialize the MaintenanceLogService with an empty maintenance log list.  
         /// </summary>  
-        public MaintenanceLogService()
+        public MaintenanceLogService(IMaintenanceLogRepo maintenenanceLogRepo)
         {
-            _maintenanceLogs = new List<MaintenanceLog>();
+            _maintenanceLogRepo = maintenenanceLogRepo ?? throw new ArgumentNullException(nameof(maintenenanceLogRepo));
         }
 
         /// <summary>  
