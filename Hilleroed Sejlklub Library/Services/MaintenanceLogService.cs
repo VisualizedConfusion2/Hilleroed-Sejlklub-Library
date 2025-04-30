@@ -13,7 +13,7 @@ namespace Hilleroed_Sejlklub_Library.Services
     /// The MaintenanceLogService class provides functionality to manage maintenance logs.  
     /// Implements the IMaintenanceLog interface.  
     /// </summary>  
-    internal class MaintenanceLogService
+    public class MaintenanceLogService
     {
         // A private list to store maintenance logs  
         private IMaintenanceLogRepo _maintenanceLogRepo;
@@ -30,18 +30,18 @@ namespace Hilleroed_Sejlklub_Library.Services
         /// Retrieves all maintenance logs in the system.  
         /// </summary>  
         /// <returns>A list of all maintenance logs.</returns>  
-        public List<MaintenanceLog> GetAll()
+        public List<MaintenanceLog> Get()
         {
-            return _maintenanceLogs.ToList();
+            return _maintenanceLogRepo.Get();
         }
 
         /// <summary>  
         /// Adds a new maintenance log to the system.  
         /// </summary>  
         /// <param name="maintenanceLog">The maintenance log to add.</param>  
-        public void Add(MaintenanceLog maintenanceLog)
+        public virtual void Add(MaintenanceLog maintenanceLog)
         {
-            _maintenanceLogs.Add(maintenanceLog);
+            _maintenanceLogRepo.Add(maintenanceLog);
         }
 
         /// <summary>  
@@ -50,20 +50,12 @@ namespace Hilleroed_Sejlklub_Library.Services
         /// <param name="maintenanceId">The ID of the maintenance log to delete.</param>  
         public void Delete(int maintenanceId)
         {
-            MaintenanceLog log = null;
-            foreach (MaintenanceLog maintenanceLog in _maintenanceLogs)
-            {
-                if (maintenanceLog.MaintenanceLogId == maintenanceId)
-                {
-                    log = maintenanceLog;
-                    break;
-                }
-            }
-
-            if (log != null)
-            {
-                _maintenanceLogs.Remove(log);
-            }
+            _maintenanceLogRepo.Delete(maintenanceId);
         }
+        public void GetById(int id)
+        {
+            // missing logic here
+        }
+
     }
 }

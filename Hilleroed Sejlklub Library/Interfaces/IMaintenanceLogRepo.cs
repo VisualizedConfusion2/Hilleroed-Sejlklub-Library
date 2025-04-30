@@ -11,7 +11,7 @@ namespace Hilleroed_Sejlklub_Library.Interfaces
 {
     public interface IMaintenanceLogRepo
     {
-        List<MaintenanceLog> GetAll();
+        List<MaintenanceLog> Get();
         void Add(MaintenanceLog maintenanceLog);
         void Delete(int maintenanceLogId);
     }
