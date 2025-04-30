@@ -10,7 +10,7 @@ namespace Hilleroed_Sejlklub_Library.Interfaces
     public interface IRepairRepo
     {
         // Get all repair records
-        List<Repair> GetAll();
+        List<Repair> Get();
 
         // Add a new repair record
         void Add(Repair repair);

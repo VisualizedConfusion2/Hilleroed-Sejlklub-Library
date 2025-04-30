@@ -5,116 +5,75 @@ using System.Collections.Generic;
 
 namespace Hilleroed_Sejlklub_Library.Services
 {
-    internal class RepairService : IRepairRepo
+    /// <summary>
+    /// Service class for handling repair logic using an injected repository.
+    /// </summary>
+    public class RepairService
     {
-        // List to store all repair records
-        private readonly List<Repair> _repairs;
+        private readonly IRepairRepo _repairRepo;
 
-        // Constructor to initialize the repair list
-        public RepairService()
+        /// <summary>
+        /// Constructor that takes a repository implementing IRepairRepo.
+        /// </summary>
+        public RepairService(IRepairRepo repairRepo)
         {
-            _repairs = new List<Repair>();
+            _repairRepo = repairRepo ?? throw new ArgumentNullException(nameof(repairRepo));
         }
 
-        // Retrieve all repair records
-        public List<Repair> GetAll()
+        /// <summary>
+        /// Returns all repairs.
+        /// </summary>
+        public List<Repair> Get()
         {
-            List<Repair> result = new List<Repair>();
-            for (int i = 0; i < _repairs.Count; i++)
-            {
-                result.Add(_repairs[i]);
-            }
-            return result;
+            return _repairRepo.Get();
         }
 
-        // Add a new repair record to the list
+        /// <summary>
+        /// Adds a repair.
+        /// </summary>
         public void Add(Repair repair)
         {
-            if (repair != null)
-            {
-                _repairs.Add(repair);
-            }
+            _repairRepo.Add(repair);
         }
 
-        // Delete a repair record by its ID
+        /// <summary>
+        /// Deletes a repair by ID.
+        /// </summary>
         public void Delete(string repairID)
         {
-            Repair repairToDelete = null;
-
-            // Find the repair record with the matching ID
-            for (int i = 0; i < _repairs.Count; i++)
-            {
-                if (_repairs[i].RepairID == repairID)
-                {
-                    repairToDelete = _repairs[i];
-                    break;
-                }
-            }
-
-            // Remove the repair record if found
-            if (repairToDelete != null)
-            {
-                _repairs.Remove(repairToDelete);
-            }
+            _repairRepo.Delete(repairID);
         }
 
-        // Retrieve a repair record by its ID
+        /// <summary>
+        /// Gets a repair by ID.
+        /// </summary>
         public Repair GetById(string repairID)
         {
-            for (int i = 0; i < _repairs.Count; i++)
-            {
-                if (_repairs[i].RepairID == repairID)
-                {
-                    return _repairs[i];
-                }
-            }
-            return null;
+            return _repairRepo.GetById(repairID);
         }
 
-        // Update an existing repair record
-        public void Update(Repair updatedRepair)
+        /// <summary>
+        /// Updates an existing repair.
+        /// </summary>
+        public void Update(Repair repair)
         {
-            if (updatedRepair == null)
-            {
-                return;
-            }
-
-            // Find the repair record with the matching ID and update its properties
-            for (int i = 0; i < _repairs.Count; i++)
-            {
-                if (_repairs[i].RepairID == updatedRepair.RepairID)
-                {
-                    _repairs[i].Description = updatedRepair.Description;
-                    _repairs[i].Date = updatedRepair.Date;
-                    return;
-                }
-            }
+            _repairRepo.Update(repair);
         }
 
-        // Get the date of a repair by its ID
+        /// <summary>
+        /// Gets the date of a repair.
+        /// </summary>
         public DateTime GetDate(string repairID)
         {
-            for (int i = 0; i < _repairs.Count; i++)
-            {
-                if (_repairs[i].RepairID == repairID)
-                {
-                    return _repairs[i].Date;
-                }
-            }
-            return default(DateTime);
+            return _repairRepo.GetDate(repairID);
         }
 
-        // Get the description of a repair by its ID
+        /// <summary>
+        /// Gets the description of a repair.
+        /// </summary>
         public string GetDescription(string repairID)
         {
-            for (int i = 0; i < _repairs.Count; i++)
-            {
-                if (_repairs[i].RepairID == repairID)
-                {
-                    return _repairs[i].Description;
-                }
-            }
-            return null;
+            return _repairRepo.GetDescription(repairID);
         }
     }
 }
