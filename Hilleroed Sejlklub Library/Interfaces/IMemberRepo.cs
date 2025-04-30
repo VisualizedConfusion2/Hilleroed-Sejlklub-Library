@@ -13,7 +13,7 @@ namespace Hilleroed_Sejlklub_Library.Interfaces
         Member GetMember(int MemberID);
 
         // Get a list of all members  
-        List<Member> GetMembers();
+        List<Member> Get();
 
         // Add a new member  
         void Add(Member member);
