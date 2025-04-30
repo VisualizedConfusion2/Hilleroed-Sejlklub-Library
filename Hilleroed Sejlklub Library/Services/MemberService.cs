@@ -1,5 +1,6 @@
 ﻿using Hilleroed_Sejlklub_Library.Interfaces;
 using Hilleroed_Sejlklub_Library.Models;
+using Hilleroed_Sejlklub_Library.Repos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,114 +9,42 @@ using System.Threading.Tasks;
 
 namespace Hilleroed_Sejlklub_Library.Services
 {
-    internal class MemberService : IMemberRepo
+    internal class MemberService
     {
         // List to store all members
-        private readonly List<Member> _members;
+        private IMemberRepo _memberRepo;
 
         // Constructor to initialize the member list
-        public MemberService()
+        public MemberService(IMemberRepo memberRepo)
         {
-            _members = new List<Member>();
+            _memberRepo = memberRepo ?? throw new ArgumentNullException(nameof(memberRepo));
         }
 
         // Retrieve all members
-        public List<Member> GetAllMembers()
+        public List<Member> Get()
         {
-            return _members;
+            return _memberRepo.Get();
         }
 
         // Retrieve a member by their ID
-        public Member? GetMemberById(int id)
+        public void GetMemberById(int id)
         {
-            foreach (Member member in _members)
-            {
-                if (member.MemberID == id)
-                {
-                    return member;
-                }
-            }
-            return null;
+            //missinglogic
         }
 
         // Add a new member to the list
-        public void AddMember(Member member)
+        public void Add(Member member)
         {
-            _members.Add(member);
-        }
-
-        // Update an existing member's details
-        public bool UpdateMember(int id, Member updatedMember)
-        {
-            Member? member = GetMemberById(id);
-            if (member == null)
-                return false;
-
-            // Update member properties
-            member.Name = updatedMember.Name;
-            member.ContactInfo = updatedMember.ContactInfo;
-            member.Birthday = updatedMember.Birthday;
-            member.Gender = updatedMember.Gender;
-            return true;
+            _memberRepo.Add(member);
         }
 
         // Delete a member by their ID
-        public bool DeleteMember(int id)
+        public void Delete(int id)
         {
-            Member? member = GetMemberById(id);
-            if (member == null)
-                return false;
-
-            _members.Remove(member);
-            return true;
+            _memberRepo.Delete(id);
         }
 
-        // Retrieve a member by ID or throw an exception if not found
-        public Member GetMember(int MemberID)
-        {
-            Member? member = GetMemberById(MemberID);
-            if (member == null)
-            {
-                throw new KeyNotFoundException($"Member with ID {MemberID} not found.");
-            }
-            return member;
-        }
-
-        // Get a copy of the list of all members
-        public List<Member> GetMembers()
-        {
-            List<Member> membersCopy = new List<Member>();
-            foreach (Member member in _members)
-            {
-                membersCopy.Add(member);
-            }
-            return membersCopy;
-        }
-
-        // Add a new member, ensuring no duplicate IDs
-        public void Add(Member member)
-        {
-            foreach (Member existingMember in _members)
-            {
-                if (existingMember.MemberID == member.MemberID)
-                {
-                    throw new InvalidOperationException($"Member with ID {member.MemberID} already exists.");
-                }
-            }
-            _members.Add(member);
-        }
-
-        // Delete a member by ID or throw an exception if not found
-        public void Delete(int MemberID)
-        {
-            Member? member = GetMemberById(MemberID);
-            if (member == null)
-            {
-                throw new KeyNotFoundException($"Member with ID {MemberID} not found.");
-            }
-            _members.Remove(member);
-        }
-
+        //NO LOGIC HERE YET
         public string GetContactInfo(int MemberID)
         {
             throw new NotImplementedException();

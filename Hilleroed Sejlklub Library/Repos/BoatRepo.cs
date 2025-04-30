@@ -28,9 +28,9 @@ namespace Hilleroed_Sejlklub_Library.Repos
         }
 
         //DELETE LOGIC SIMPLIFIED NEEDS UPDATE
-        public void Delete(int boatid)
+        public void Delete(int id)
         {
-            Boat boat = _boats.FirstOrDefault(b => b.BoatId == boatid);
+            Boat boat = _boats.FirstOrDefault(b => b.BoatId == id);
             _boats.Remove(boat);
         }
 
