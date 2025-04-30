@@ -9,9 +9,14 @@
         public string SailType { get; private set; }
         public string Motor { get; private set; }
         public string Measurement { get; private set; }
-        public DateTime Year { get; private set; }
+        public string Year { get; private set; }
         public bool Usable { get; private set; }
-        public Boat(string name, int id, string model, string type, string sailType, string motor, string measurement, DateTime year, bool usable)
+
+        //default constructor
+        public Boat()
+        {
+        }
+        public Boat(string name, int id, string model, string type, string sailType, string motor, string measurement, string year, bool usable)
         {
             Name = name;
             BoatId = id;

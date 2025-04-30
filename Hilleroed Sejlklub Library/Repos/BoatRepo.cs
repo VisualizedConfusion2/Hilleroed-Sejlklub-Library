@@ -47,9 +47,9 @@ namespace Hilleroed_Sejlklub_Library.Repos
 
         private void Seed()
         {
-            _boats.Add(new Boat("object1", 1, "model", "type", "sailType", "motor", "measurement", new DateTime(2000, 1, 1, 1, 1, 1), false));
-            _boats.Add(new Boat("object2", 1, "model", "type", "sailType", "motor", "measurement", new DateTime(2000, 1, 1, 1, 1, 1), false));
-            _boats.Add(new Boat("object3", 1, "model", "type", "sailType", "motor", "measurement", new DateTime(2000, 1, 1, 1, 1, 1), false));
+            _boats.Add(new Boat("object1", 1, "model", "type", "sailType", "motor", "measurement", "2004", false));
+            _boats.Add(new Boat("object2", 1, "model", "type", "sailType", "motor", "measurement", "2002", false));
+            _boats.Add(new Boat("object3", 1, "model", "type", "sailType", "motor", "measurement", "2001", false));
         }
     }
 }
