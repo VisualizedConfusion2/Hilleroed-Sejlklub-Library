@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Hilleroed_Sejlklub_Library.Services
 {
-    internal class MemberService
+    public class MemberService
     {
         // List to store all members
         private IMemberRepo _memberRepo;
