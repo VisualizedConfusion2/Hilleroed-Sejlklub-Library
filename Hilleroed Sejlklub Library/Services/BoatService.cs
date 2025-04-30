@@ -19,6 +19,11 @@ namespace Hilleroed_Sejlklub_Library.Services
         {
             _boatRepo = boatRepo ?? throw new ArgumentNullException(nameof(boatRepo));
         }
+        
+        public List<Boat> GetAll()
+        {
+            return _boatRepo.GetAll();
+        }
 
         public List<Boat> Get()
         {

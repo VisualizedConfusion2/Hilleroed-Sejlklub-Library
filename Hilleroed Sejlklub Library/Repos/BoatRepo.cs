@@ -26,6 +26,10 @@ namespace Hilleroed_Sejlklub_Library.Repos
         {
             return _boats;
         }
+        public List<Boat> GetAll()
+        {
+            return _boats;
+        }
 
         //DELETE LOGIC SIMPLIFIED NEEDS UPDATE
         public void Delete(int id)
