@@ -12,10 +12,9 @@
         public string Year { get; set; }
         public bool Usable { get; set; }
 
-        //default constructor
-        public Boat()
-        {
-        }
+        public Boat() { } // stadig vigtigt!
+
+
         public Boat(string name, int id, string model, string type, string sailType, string motor, string measurement, string year, bool usable)
         {
             Name = name;
