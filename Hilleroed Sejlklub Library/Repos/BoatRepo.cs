@@ -18,14 +18,11 @@ namespace Hilleroed_Sejlklub_Library.Repos
             _boats = new List<Boat>();
             Seed();
         }
-        public virtual void Add(Boat boat)
+        public void Add(Boat boat)
         {
             _boats.Add(boat);
         }
-        public List<Boat> Get()
-        {
-            return _boats;
-        }
+        
         public List<Boat> GetAll()
         {
             return _boats;
@@ -45,11 +42,11 @@ namespace Hilleroed_Sejlklub_Library.Repos
             return boat;
         }
 
-        private void Seed()
+        public void Seed()
         {
-            _boats.Add(new Boat("object1", 1, "model", "type", "sailType", "motor", "measurement", "2004", false));
-            _boats.Add(new Boat("object2", 1, "model", "type", "sailType", "motor", "measurement", "2002", false));
-            _boats.Add(new Boat("object3", 1, "model", "type", "sailType", "motor", "measurement", "2001", false));
+            //_boats.Add(new Boat("object1", 1, "model", "type", "sailType", "motor", "measurement", "2004", false));
+            //_boats.Add(new Boat("object2", 1, "model", "type", "sailType", "motor", "measurement", "2002", false));
+            //_boats.Add(new Boat("object3", 1, "model", "type", "sailType", "motor", "measurement", "2001", false));
         }
     }
 }

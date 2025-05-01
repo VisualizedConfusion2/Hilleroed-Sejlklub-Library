@@ -11,6 +11,9 @@
         public DateTime Birthday { get; set; }
         public string Gender { get; set; }
 
+        //default constructor
+        public Member ()
+        {}
         public Member(string name, int memberID, string contactInfo, DateTime birthday, string gender)
         {
             Name = name;

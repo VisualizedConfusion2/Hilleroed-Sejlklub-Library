@@ -24,7 +24,7 @@ namespace Hilleroed_Sejlklub_Library.Repos
             _boats = JsonSerializer.Deserialize<List<Boat>>(json);
         }
 
-        public override void Add(Boat boat)
+        public void Add(Boat boat)
         {
             base.Add(boat);
             SaveFile();
