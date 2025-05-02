@@ -11,8 +11,13 @@ namespace Hilleroed_Sejlklub_Library.Interfaces
 {
     public interface IMaintenanceLogRepo
     {
+        // Retrieves a list of all maintenance logs
         List<MaintenanceLog> Get();
+
+        // Adds a new maintenance log to the repository
         void Add(MaintenanceLog maintenanceLog);
+
+        // Deletes a maintenance log from the repository by its ID
         void Delete(int maintenanceLogId);
     }
 }
