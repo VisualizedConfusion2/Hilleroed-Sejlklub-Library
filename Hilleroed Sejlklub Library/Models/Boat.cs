@@ -2,19 +2,36 @@
 {
     public class Boat
     {
+        // The name of the boat
         public string Name { get; set; }
+
+        // Unique identifier for the boat
         public int BoatId { get; set; }
+
+        // The model of the boat
         public string Model { get; set; }
+
+        // The type/category of the boat
         public string Type { get; set; }
+
+        // The type of sail used by the boat
         public string SailType { get; set; }
+
+        // Information about the motor of the boat
         public string Motor { get; set; }
+
+        // Measurement details of the boat
         public string Measurement { get; set; }
+
+        // The year the boat was manufactured
         public string Year { get; set; }
+
+        // Indicates whether the boat is currently usable
         public bool Usable { get; set; }
         public string Image {  get; set; }
 
-        public Boat() { } // stadig vigtigt!
-
+        // Default constructor
+        public Boat() { }
 
         public Boat(string name, int id, string model, string type, string sailType, string motor, string measurement, string year, bool usable, string image)
         {
