@@ -11,11 +11,12 @@
         public string Measurement { get; set; }
         public string Year { get; set; }
         public bool Usable { get; set; }
+        public string Image {  get; set; }
 
         public Boat() { } // stadig vigtigt!
 
 
-        public Boat(string name, int id, string model, string type, string sailType, string motor, string measurement, string year, bool usable)
+        public Boat(string name, int id, string model, string type, string sailType, string motor, string measurement, string year, bool usable, string image)
         {
             Name = name;
             BoatId = id;
@@ -26,6 +27,7 @@
             Measurement = measurement;
             Year = year;
             Usable = usable;
+            Image = image;
         }
     }
 }
