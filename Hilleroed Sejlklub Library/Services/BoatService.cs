@@ -13,31 +13,26 @@ namespace Hilleroed_Sejlklub_Library.Services
     public class BoatService
     {
 
-        private IBoatRepo _boatRepo;
+        private IBoatRepo _boatInterface;
 
-        public BoatService(IBoatRepo boatRepo)
+        public BoatService(IBoatRepo boatInterface)
         {
-            _boatRepo = boatRepo ?? throw new ArgumentNullException(nameof(boatRepo));
+            _boatInterface = boatInterface;
         }
 
-        public List<Boat> Get()
+        public List<Boat> GetAll()
         {
-            return _boatRepo.Get();
+            return _boatInterface.GetAll();
         }
 
         public virtual void Add(Boat boat)
         {
-            _boatRepo.Add(boat);
+            _boatInterface.Add(boat);
         }
 
         public void Delete(int boatId)
         {
-            _boatRepo.Delete(boatId);
-        }
-
-        public void GetById(int id)
-        {
-          // missing logic here
+            _boatInterface.Delete(boatId);
         }
 
     }

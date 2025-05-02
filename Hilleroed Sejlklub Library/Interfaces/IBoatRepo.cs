@@ -11,9 +11,9 @@ namespace Hilleroed_Sejlklub_Library.Interfaces
 {
     public interface IBoatRepo
     {
-        List<Boat> Get();
-        void Add(Boat boat);
-        void Delete(int id);
-        Boat GetById(int id);
+        public List<Boat> GetAll();
+        public void Add(Boat boat);
+        public void Delete(int id);
+        public void Seed();
     }
 }
